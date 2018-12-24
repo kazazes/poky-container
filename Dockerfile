@@ -17,8 +17,9 @@ FROM crops/yocto:ubuntu-14.04-base
 
 USER root
 
-RUN apt-get update && apt-get install jq curl && rm -rf /etc/apt/sources.list.* \
-        && curl -sL https://deb.nodesource.com/setup_10.x | bash
+RUN apt-get update && apt-get install jq curl \
+        && curl -sL https://deb.nodesource.com/setup_10.x | bash \
+        && rm -rf /etc/apt/sources.list.d/*
 
 ADD https://raw.githubusercontent.com/crops/extsdk-container/master/restrict_useradd.sh  \
         https://raw.githubusercontent.com/crops/extsdk-container/master/restrict_groupadd.sh \
